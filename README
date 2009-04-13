@@ -1,0 +1,19 @@
+HttpblFilters
+=============
+
+This little plug-in is purposed to obfuscate spam bots collecting e-mail addresses from web sites (a.k.a. spam harvesters). This is possible thanks to the Project Honey Pot <http://www.projecthoneypot.org/>. Basic usage is as simple as:
+
+
+	class ApplicationController < ActionController::Base
+
+	  httpbl_key 'your_key'
+
+	  ...
+	end
+
+
+You will need to obtain the access key from your account at http://www.projecthoneypot.org/httpbl_configure.php as it will be used for checking visiting IP address for spam harvester. Rendering the e-mail address by standard helper
+
+	<%= mail_to 'kamk@volny.cz' %>
+
+will result to either intended address or in case of the harvester visit to random address such as josephthompson@wupigulyv.us, scottpaul@mujufokygu.net, bwalker@teqaluda.org, etc.
